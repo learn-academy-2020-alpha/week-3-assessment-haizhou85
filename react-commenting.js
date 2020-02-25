@@ -7,19 +7,19 @@
 class App extends Component{
   constructor(){
     super()
-    // 1.
+    // 1.create a state object to store user input
     this.state = {
       userInput: "",
     }
   }
 
   robot = (e) => {
-    // 2.
+    // 2.create a method to update user input to state
     this.setState({ userInput: e.target.value})
   }
 
   render(){
-    // 3.
+    // 3.destructuring the state object
     let { userInput } = this.state
 
     return(
@@ -28,16 +28,16 @@ class App extends Component{
 
         <h3>Enter text here:</h3>
         <input
-          {/* 4. */}
+          {/* 4.call the method to store what enters in input box */}
           onChange={ this.robot }
-          {/* 5. */}
+          {/* 5.set the value to userInput*/}
           value={ userInput }
         />
 
         <div>
-          {/* 6. */}
+          {/* 6.place Goodrobot component */}
           <GoodRobot
-            {/* 7. */}
+            {/* 7.pass userInput to props */}
             userInput={ userInput }
           />
           <BadRobot
@@ -58,14 +58,14 @@ export default App
 class GoodRobot extends Component{
   render(){
     return(
-      // 8.
+      // 8.render the robot component
       <div>
         <h3>Good Robot</h3>
-        {/* 9. */}
+        {/* 9. display what user enters in props */}
         <h4>I hear you saying { this.props.userInput }. Is that correct?</h4>
       </div>
     )
   }
 }
-// 10.
+// 10.close the component
 export default GoodRobot
